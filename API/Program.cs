@@ -2,15 +2,28 @@ using API;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
+var  allowOrigins = "_myAllowSpecificOrigins";
+
+// builder.Services.AddCors(options =>
+// {
+//     options.AddDefaultPolicy(
+//         policy =>
+//         {
+//             policy.WithOrigins("*", "*");
+//         });
+// });
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(
-        policy =>
-        {
-            policy.WithOrigins("*", "*");
-        });
+    options.AddPolicy(name: allowOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("*","*")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                      });
 });
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -18,7 +31,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseCors();
+app.UseCors(allowOrigins);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
