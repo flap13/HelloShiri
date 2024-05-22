@@ -1,6 +1,6 @@
 import { Injectable} from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ChatRequest,TextValue,ChatResponse} from './app.model';
+import { ChatRequest,TextValue,ChatResponse, ChatObject} from './app.model';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 

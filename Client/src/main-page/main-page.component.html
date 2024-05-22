@@ -1,24 +1,11 @@
 
-<div >
-    <div  class="helloDiv">
-        <div>
-            <img src="/src/assets/svg/logo.svg">
-        </div>
-        <div>
-        הי ישראלה, 
-        <br/>
-        כאן שירי, בשבילך
-        </div>
-    </div>
-  <div class="profileMsg">
-    אם תרצי תוכלי למחוק את הפרטים שלך ולהמשיך את השימוש באופן אנונימי.
-  </div>
-  <div class="profileDiv">
-    <div class="profileButton">
-        <img src="./src/assets/svg/del_icon.svg">
-        למחיקת פרופיל</div>
-    </div>
-  <div class="chatTxtDiv">
-        <app-chat-ask></app-chat-ask>
-   </div>
+<div *ngIf="showHomePage">
+  <app-home-page></app-home-page>
+</div>
+<div *ngIf="!showHomePage">
+  <app-dialog-page></app-dialog-page>
+</div>
+<div (click)="getAnswer();">click</div>
+<div class="chatTxtDiv">
+      <app-chat-ask></app-chat-ask>
 </div>
