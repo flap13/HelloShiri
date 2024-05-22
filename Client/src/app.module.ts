@@ -5,6 +5,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ChatAskComponent } from './chat-ask/chat-ask.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import {ItemListComponent} from './item-list/item-list.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {ItemListComponent} from './item-list/item-list.component';
     MainPageComponent,
     ChatAskComponent,
     AddItemComponent,
-    ItemListComponent
+    ItemListComponent,
+    InputTextModule,
+    FloatLabelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
