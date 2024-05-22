@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
-
-
-declare var webkitSpeechRecognition:any;
 import { MainPageComponent } from '../main-page/main-page.component';
 
 @Component({
