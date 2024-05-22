@@ -1,14 +1,20 @@
 <div class="dialogDiv">
     <div *ngFor="let chatObject of ChatList">
         <div>
-          <h3>Request:</h3>
-          <p>{{ chatObject.req.Text }}</p>
-          <!-- Display other properties of the request object as needed -->
+          
+          <div class="reqDiv">{{ chatObject.req.text }}</div>
+        
         </div>
         <div>
-          <h3>Response:</h3>
-          <p>{{ chatObject.res.Text }}</p>
-          <!-- Display other properties of the response object as needed -->
+          
+          <div class="resDiv">
+              <div>{{ chatObject.res.text }}</div>
+              <div *ngFor="let phoneObject of chatObject.res.phoneNumbers">
+                <div>{{ phoneObject.Value }}</div>
+              </div>
+              <div class="logoDiv"> 
+                <img src="assets/img/logo.png" style="width: 6vw;"> </div>
+          </div>
         </div>
       </div>
 </div>

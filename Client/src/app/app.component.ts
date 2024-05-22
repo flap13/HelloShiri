@@ -27,13 +27,13 @@ export class AppComponent {
 
   ngOnInit(): void {
 
-    this.chatRequest.Text = "מה מספר הטלפון בחירום?";
+    // this.chatRequest.text = "מה מספר הטלפון בחירום?";
 
  
-    this.appService.GetChat(this.chatRequest).subscribe(response => {
-      this.chatResponse = response;
-      console.log(this.chatResponse);
-    });
+    // this.appService.GetChat(this.chatRequest).subscribe(response => {
+    //   this.chatResponse = response;
+    //   console.log(this.chatResponse);
+    // });
 
 
   }

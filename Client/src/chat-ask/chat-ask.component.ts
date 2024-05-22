@@ -15,7 +15,7 @@ import { VoiceRecognitionService } from '../../src/app/voice-recognition.service
 })
 export class ChatAskComponent {
 
-  title = 'Client';
+  
   // chatRequest: ChatRequest = new ChatRequest();
   // chatResponse: ChatResponse = new ChatResponse(); 
   results: any;

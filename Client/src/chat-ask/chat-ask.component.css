@@ -9,7 +9,8 @@
 }
 
 .inputDiv{
-    display: flex;
+    display: grid;
+    grid-template-columns: 6fr 1fr;
     background-color: #F5E7FF;
     border-radius: 24px;
 }
@@ -25,5 +26,22 @@
     top: -300px;
     right: 150px;
     border-radius: 3px;
+
+}
+.inputAsk{
+    border-radius: 24px;
+    background-color: #F5E7FF;
+    border: none;
+    font-family: 'Assistant';
+    width:70%;
+}
+
+.imgHeadphone{
+    padding:1vh 2vw 0vh 2vw;
+}
+
+.imgSize{
+    width: 47%;
+    padding: 1vh 1vw 0vh 1vw;
 
 }

@@ -1,0 +1,19 @@
+.reqDiv{
+
+    border-radius: 24px;
+    background-color:#ffff;
+    color:#270161;
+    width: fit-content;
+    padding: 1vh 2vw;
+    margin: 4vh 2vw 1vh 2vw;
+}
+.resDiv{
+    display: flex;
+    padding: 1vh 2vw;
+    margin: 4vh 2vw 1vh 2vw;
+    text-align: start;
+}
+
+.logoDiv{
+    padding: 0vh 2vw 0vh 2vw;
+}

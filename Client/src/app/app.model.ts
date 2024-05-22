@@ -8,17 +8,19 @@ export class TextValue {
 
 export class ChatResponse
 {
-    Text:string="";
-    PhoneNumbers: TextValue[]=[];
+    text:string="";
+    phoneNumbers: TextValue[]=[];
     Emails: TextValue[]=[];
     URLs: TextValue[]=[];
     Addresses: TextValue[]=[];
     constructor(){}  
+
+    
 }    
 
 export class ChatRequest
 {
-    Text:string="";
+    text:string="";
     AdditionalData: TextValue[]=[];
     constructor(){}
 }

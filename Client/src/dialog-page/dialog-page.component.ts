@@ -27,15 +27,15 @@ export class DialogPageComponent {
  
   ngOnInit(): void {
 
-    this.chatRequest.Text = "מה מספר הטלפון בחירום?";
+    this.chatRequest.text = "מה הטלפון?";
     this.appService.GetChat(this.chatRequest).subscribe(response => {
       this.chatResponse = response;
       
       this.ChatList = [
         { req: this.chatRequest, res: this.chatResponse }
       ];
-      alert(this.ChatList[0].req.Text );
-      console.log(this.chatResponse.Text);
+     
+      console.log(this.chatResponse);
     });
     // Hardcoded initialization of the array with one ChatObject
     // this.arrayChat = [
