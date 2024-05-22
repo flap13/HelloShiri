@@ -23,4 +23,10 @@ export class ChatRequest
     constructor(){}
 }
 
+export class ChatObject{
+    req:ChatRequest = new ChatRequest;
+    res:ChatResponse = new ChatResponse
+
+}
+
  

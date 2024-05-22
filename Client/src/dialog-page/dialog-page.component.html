@@ -1,0 +1,14 @@
+<div class="dialogDiv">
+    <div *ngFor="let chatObject of ChatList">
+        <div>
+          <h3>Request:</h3>
+          <p>{{ chatObject.req.Text }}</p>
+          <!-- Display other properties of the request object as needed -->
+        </div>
+        <div>
+          <h3>Response:</h3>
+          <p>{{ chatObject.res.Text }}</p>
+          <!-- Display other properties of the response object as needed -->
+        </div>
+      </div>
+</div>
