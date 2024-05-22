@@ -6,6 +6,7 @@ import { ChatAskComponent } from './chat-ask/chat-ask.component';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';  
 import { AppService } from './app/app.service';
+import { VoiceRecognitionService } from './app/voice-recognition.service';
 import { AddItemComponent } from './add-item/add-item.component';
 import {ItemListComponent} from './item-list/item-list.component';
 
@@ -15,7 +16,8 @@ import {ItemListComponent} from './item-list/item-list.component';
     MainPageComponent,
     ChatAskComponent,
     AppService,
-    CommonModule
+    CommonModule,
+    VoiceRecognitionService
   ],
   imports: [
     BrowserModule,
@@ -25,9 +27,10 @@ import {ItemListComponent} from './item-list/item-list.component';
     HttpClient,
     AppService,
     AddItemComponent,
-    ItemListComponent
+    ItemListComponent,
+    VoiceRecognitionService
   ],
-  providers: [AppService, HttpClientModule, HttpClient,CommonModule],
+  providers: [AppService, VoiceRecognitionService,HttpClientModule, HttpClient,CommonModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

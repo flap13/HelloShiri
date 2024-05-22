@@ -9,7 +9,7 @@ declare var webkitSpeechRecognition:any;
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,MainPageComponent,MainPageComponent],
+  imports: [RouterOutlet,MainPageComponent,MainPageComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css' 
 })
