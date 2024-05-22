@@ -2,7 +2,7 @@ using API;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
-var  allowOrigins = "_allowOrigins";
+var allowOrigins = "_allowOrigins";
 
 // builder.Services.AddCors(options =>
 // {
@@ -18,7 +18,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: allowOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("*","*")
+                          builder
+                          .AllowAnyOrigin()
                           .AllowAnyHeader()
                           .AllowAnyMethod();
                       });
@@ -31,8 +32,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseCors(allowOrigins);
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -41,6 +40,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
+app.UseCors(allowOrigins);
 
 app.MapPost("/AskMe", ([FromBody]ChatRequest request) =>
 {
