@@ -7,12 +7,12 @@ namespace ShiriAI
     {
         // Azure OpenAI setup
         Uri endPoint = new Uri("https://itc-openai.openai.azure.com/"); // Add your endpoint here
-        string apiKey = "328092f46c0e4d88b4d5a20014328922"; // Add your OpenAI API key here
+        string apiKey = ""; // Add your OpenAI API key here
         string deploymentId = "gpt-4"; // Add your deployment ID here
 
         // Azure AI Search setup
         string searchEndpoint = "https://itc-search.search.windows.net"; // Add your Azure AI Search endpoint here
-        string searchKey = "dT6JxohGGYbrb00YcmDMr6BFUMl3wLwmtGUaFdmsTrAzSeCB3och"; // Add your Azure AI Search admin key here
+        string searchKey = ""; // Add your Azure AI Search admin key here
         string searchIndexName = "ai-idx1"; // Add your Azure AI Search index name here
 //         OpenAIClient client = new OpenAIClient(endPoint, new AzureKeyCredential(apiKey));
 
