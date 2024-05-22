@@ -3,36 +3,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ChatAskComponent } from './chat-ask/chat-ask.component';
-<<<<<<< HEAD:Client/src/app/app.module.ts
-import { HttpClientModule,HttpClient } from '@angular/common/http';
-
-import { AppService } from './app.service';
-=======
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AppService } from './app/app.service';
 import { AddItemComponent } from './add-item/add-item.component';
-import {ItemListComponent} from './item-list/item-list.component';
->>>>>>> f237b90b80ad3d282793aed59914fc2b4b947ea8:Client/src/app.module.ts
+import { ItemListComponent } from './item-list/item-list.component';
+
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     ChatAskComponent,
-    AppService
+    AppService,
+    CommonModule
   ],
   imports: [
     BrowserModule,
     MainPageComponent,
     ChatAskComponent,
-<<<<<<< HEAD:Client/src/app/app.module.ts
     HttpClientModule,
     HttpClient,
-    AppService
-=======
+    AppService,
     AddItemComponent,
-    ItemListComponent
->>>>>>> f237b90b80ad3d282793aed59914fc2b4b947ea8:Client/src/app.module.ts
+    ItemListComponent,
+    CommonModule
+
   ],
-  providers: [AppService,HttpClientModule,HttpClient],
+  providers: [AppService, HttpClientModule, HttpClient,CommonModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
