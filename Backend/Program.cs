@@ -1,4 +1,21 @@
+using Backend;
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var allowOrigins = "_allowOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: allowOrigins,
+                      builder =>
+                      {
+                          builder
+                          .AllowAnyOrigin()
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                      });
+});
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -15,30 +32,20 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
+app.UseCors(allowOrigins);
 
-var summaries = new[]
+app.MapPost("/AskShiri", ([FromBody]ChatRequest request) =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
+    ShiriMachine  shiriMachine = new ShiriMachine();
+    ChatResponse response = shiriMachine.GetChatResponse(request).Result;
+    return response;
 })
-.WithName("GetWeatherForecast")
+.WithName("AskShiri")
+.WithOpenApi();
+
+app.MapGet("/Hello", () => new { Message = "Hello World" })
+.WithName("Hello")
 .WithOpenApi();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

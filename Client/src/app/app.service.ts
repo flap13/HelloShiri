@@ -16,7 +16,7 @@ const httpOptions = {
 export class AppService {
 
     
-    chatResponseUrl: string="http://localhost:5127/AskMe" ;//https://helloshiri.azurewebsites.net/askme";//";
+    chatResponseUrl: string="https://helloshiri.azurewebsites.net/askme" ;//https://helloshiri.azurewebsites.net/askme";//";
     
 
   constructor(private http: HttpClient) { }

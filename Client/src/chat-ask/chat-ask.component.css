@@ -17,3 +17,13 @@
 .inputImg{
     border-right: solid;
 }
+.stopRecord{
+    width: 100px;
+    height: 100px;
+    background-color: azure;
+    position: absolute;
+    top: -300px;
+    right: 150px;
+    border-radius: 3px;
+
+}
