@@ -25,15 +25,18 @@ export class AppComponent {
   results:any;
   speachToText:string="";
   showRecord:boolean=true;
+  hello:string = "";
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
     this.chatRequest.Text = "מה מספר הטלפון בחירום?";
 
-    this.appService.GetChat(this.chatRequest).subscribe(response => {
-      this.chatResponse = response;
-      console.log(this.chatResponse);
-    });
+    // this.appService.GetChat(this.chatRequest).subscribe(response => {
+    //   this.chatResponse = response;
+    //   console.log(this.chatResponse);
+    // });
+
+    this.appService.hello().subscribe(data => this.hello = data);
   }
 
   startListening() {

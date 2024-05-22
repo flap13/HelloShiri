@@ -2,7 +2,7 @@ using API;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
-var  allowOrigins = "_myAllowSpecificOrigins";
+var  allowOrigins = "_allowOrigins";
 
 // builder.Services.AddCors(options =>
 // {
@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: allowOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("http://localhost","http://localhost")
+                          builder.WithOrigins("*","*")
                           .AllowAnyHeader()
                           .AllowAnyMethod();
                       });

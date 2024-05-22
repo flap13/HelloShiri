@@ -30,4 +30,8 @@ export class AppService {
     return this.chatResponse ;
   }
 
+  hello() {
+    return this.http.get<string>("http://localhost:5127/Hello");
+  }
+
 }
