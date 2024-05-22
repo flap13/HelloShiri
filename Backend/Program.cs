@@ -44,6 +44,8 @@ app.MapPost("/AskShiri", ([FromBody]ChatRequest request) =>
 .WithName("AskShiri")
 .WithOpenApi();
 
+// TODO: Realize chunk response for better performance/user expirience
+
 app.MapGet("/Hello", () => new { Message = "Hello World" })
 .WithName("Hello")
 .WithOpenApi();
