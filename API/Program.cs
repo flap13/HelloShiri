@@ -50,4 +50,11 @@ app.MapPost("/AskMe", ([FromBody]ChatRequest request) =>
 .WithName("AskMe")
 .WithOpenApi();
 
+app.MapGet("/Hello", () =>
+{
+    return "Hello!";
+})
+.WithName("Hello")
+.WithOpenApi();
+
 app.Run();
