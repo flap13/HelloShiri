@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+<<<<<<< HEAD
 import { AppService } from './app.service';
 import { ChatRequest, ChatResponse, TextValue } from './app.model';
 
 declare var webkitSpeechRecognition:any;
+=======
+import { MainPageComponent } from '../main-page/main-page.component';
+
+>>>>>>> f237b90b80ad3d282793aed59914fc2b4b947ea8
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,MainPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
