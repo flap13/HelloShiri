@@ -47,13 +47,15 @@ namespace Backend
 
             //Response<ChatCompletions> response =  client.GetChatCompletionsAsync(chatCompletionsOptions).Result;
 
-            var message = response.Value.Choices[0].Message;
+            ChatResponseMessage message = response.Value.Choices[0].Message;
             //Console.WriteLine($"{message.Role}: {message.Content}");
 
             ShiriAnswerJsonStructure? shiriAnswer = null;
             try
             {
-                shiriAnswer = JsonSerializer.Deserialize<ShiriAnswerJsonStructure>(message.Content);
+                string messageText = message.Content;
+                messageText = messageText.Replace("\n", "").Replace("'", "");
+                shiriAnswer = JsonSerializer.Deserialize<ShiriAnswerJsonStructure>(messageText);
             }
             catch { }
 
@@ -62,11 +64,26 @@ namespace Backend
             {
                 chatResponse.Text = shiriAnswer.message;
                 if (!string.IsNullOrEmpty(shiriAnswer.address))
-                    chatResponse.Addresses.Add(new TextValue() { Value = shiriAnswer.address, Name = string.Empty });
+                {
+                    foreach (string address in shiriAnswer.address.Split(','))
+                    {
+                        chatResponse.Addresses.Add(new TextValue() { Value = address, Name = string.Empty });
+                    }
+                }
                 if (!string.IsNullOrEmpty(shiriAnswer.email))
-                    chatResponse.Emails.Add(new TextValue() { Value = shiriAnswer.email, Name = string.Empty });
+                {
+                    foreach (string email in shiriAnswer.email.Split(','))
+                    {
+                        chatResponse.Emails.Add(new TextValue() { Value = email, Name = string.Empty });
+                    }
+                }
                 if (!string.IsNullOrEmpty(shiriAnswer.phone_number))
-                    chatResponse.PhoneNumbers.Add(new TextValue() { Value = shiriAnswer.phone_number, Name = string.Empty });
+                {
+                    foreach (string phoneNumber in shiriAnswer.phone_number.Split(','))
+                    {
+                        chatResponse.PhoneNumbers.Add(new TextValue() { Value = phoneNumber, Name = string.Empty });
+                    }
+                }
 
                 await CheckDomesticRelationScore(shiriAnswer);
             }
@@ -79,7 +96,8 @@ namespace Backend
             return chatResponse;
         }
 
-        private async Task CheckDomesticRelationScore(ShiriAnswerJsonStructure shiriAnswer) {
+        private async Task CheckDomesticRelationScore(ShiriAnswerJsonStructure shiriAnswer)
+        {
             // TODO: call to external API when score is high
             await Task.CompletedTask;
         }
