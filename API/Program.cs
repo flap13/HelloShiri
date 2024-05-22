@@ -4,15 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
 var allowOrigins = "_allowOrigins";
 
-// builder.Services.AddCors(options =>
-// {
-//     options.AddDefaultPolicy(
-//         policy =>
-//         {
-//             policy.WithOrigins("*", "*");
-//         });
-// });
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: allowOrigins,
@@ -51,10 +42,7 @@ app.MapPost("/AskMe", ([FromBody]ChatRequest request) =>
 .WithName("AskMe")
 .WithOpenApi();
 
-app.MapGet("/Hello", () =>
-{
-    return "Hello!";
-})
+app.MapGet("/Hello", () => new { Message = "Hello World" })
 .WithName("Hello")
 .WithOpenApi();
 

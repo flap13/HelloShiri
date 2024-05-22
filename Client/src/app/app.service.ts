@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'text',//application/json
+    'Content-Type': 'application/json'
    // Authorization: 'my-auth-token'
   })
 };
@@ -60,7 +60,7 @@ export class AppService {
    
   }*/
 
-  hello() {
+  hello():Observable<string> {
     return this.http.get<string>("http://localhost:5127/Hello");
   }
 

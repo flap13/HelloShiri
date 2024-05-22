@@ -30,6 +30,7 @@ export class AppComponent {
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
+
     this.chatRequest.Text = "מה מספר הטלפון בחירום?";
 
     // this.appService.GetChat(this.chatRequest).subscribe(response => {
@@ -37,7 +38,10 @@ export class AppComponent {
     //   console.log(this.chatResponse);
     // });
 
-    this.appService.hello().subscribe(data => this.hello = data);
+    this.appService.hello().subscribe(data => {
+      console.log(data);
+      this.hello = data;
+    });
   }
 
   startListening() {
