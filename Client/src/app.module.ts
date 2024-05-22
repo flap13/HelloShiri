@@ -3,17 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ChatAskComponent } from './chat-ask/chat-ask.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';  
 import { AppService } from './app/app.service';
 import { AddItemComponent } from './add-item/add-item.component';
-import { ItemListComponent } from './item-list/item-list.component';
-
-import { CommonModule } from '@angular/common';
-
-import { FormsModule } from '@angular/forms';
-
-
-
+import {ItemListComponent} from './item-list/item-list.component';
 
 @NgModule({
   declarations: [
@@ -31,10 +25,7 @@ import { FormsModule } from '@angular/forms';
     HttpClient,
     AppService,
     AddItemComponent,
-    ItemListComponent,
-    CommonModule,
-    FormsModule
-
+    ItemListComponent
   ],
   providers: [AppService, HttpClientModule, HttpClient,CommonModule],
   bootstrap: [AppComponent]
