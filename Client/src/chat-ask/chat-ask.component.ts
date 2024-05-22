@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output  } from '@angular/core';
 import { MainPageComponent } from '../main-page/main-page.component';
 import { CommonModule } from '@angular/common';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { VoiceRecognitionService } from '../../src/app/voice-recognition.service';
-
+import {FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-chat-ask',
   standalone: true,
-  imports: [MainPageComponent, MainPageComponent, CommonModule],
+  imports: [MainPageComponent, MainPageComponent, CommonModule,FormsModule],
   templateUrl: './chat-ask.component.html',
   styleUrl: './chat-ask.component.css'
 })
 export class ChatAskComponent {
-
+  @Output() newItemEvent = new EventEmitter<string>();
   title = 'Client';
+  values: string = "";
   // chatRequest: ChatRequest = new ChatRequest();
   // chatResponse: ChatResponse = new ChatResponse(); 
   results: any;
@@ -67,24 +68,23 @@ export class ChatAskComponent {
   ngOnInit(): void {
     this.initVoiceInput();
   }
-  stopRecording() {
-    this.isCanceling = false;
-    this.voiceRecognition.stop();
-    this.isUserSpeaking = false;
-  }
+
 
   initVoiceInput() {
     // Subscription for initializing and this will call when user stopped speaking.
     this.voiceRecognition.init().subscribe(() => {
       // User has stopped recording
       // Do whatever when mic finished listening
-      if (this.isCanceling) { this.tryText = ""; }
+      if (this.isCanceling) { 
+       this.tryText = ""; }
     });
 
     // Subscription to detect user input from voice to text.
     this.voiceRecognition.speechInput().subscribe((input) => {
       // Set voice text output to
-      this.tryText = input;
+     // alert("speechInput");
+     if (input!="" ){  this.tryText = input;}
+    
     });
   }
 
@@ -95,11 +95,29 @@ export class ChatAskComponent {
     this.tryText = "";
   }
 
+  stopRecording() {
+   
+    this.isCanceling = false;
+    this.voiceRecognition.stop();
+    this.isUserSpeaking = false;
+    
+  }
+
   cancelRecording() {
     this.tryText = "";
     this.isCanceling = true;
     this.voiceRecognition.stop();
     this.isUserSpeaking = false;
+  }
+
+  sendAsk() {
+  
+    this.newItemEvent.emit(this.tryText);
+    this.tryText = "";
+  }
+
+  onKey(event: any) { // without type info
+    this.values = event.target.value;
   }
 
 }

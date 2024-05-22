@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,Input} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppService } from '../app/app.service';
  import { ChatRequest, ChatResponse,ChatObject, TextValue } from '../app/app.model';
@@ -16,7 +16,7 @@ declare var webkitSpeechRecognition:any;
 })
 export class DialogPageComponent {
   ChatList: ChatObject[] = [];
-
+  
   constructor(private appService: AppService) { }
   
   chatRequest: ChatRequest = new ChatRequest();
@@ -25,8 +25,10 @@ export class DialogPageComponent {
   speachToText: string = "";
   showRecord: boolean = true;
  
+  
   ngOnInit(): void {
 
+   
     this.appService.GetChat(this.chatRequest).subscribe(response => {
       this.chatResponse = response;
       
@@ -36,6 +38,8 @@ export class DialogPageComponent {
       alert(this.ChatList[0].req.Text );
       console.log(this.chatResponse);
     });
+
+   
     // Hardcoded initialization of the array with one ChatObject
     // this.arrayChat = [
     //   {
@@ -52,6 +56,11 @@ export class DialogPageComponent {
     //     }
     //   }
     // ];
+  }
+
+  public addRequest( requsest: ChatRequest){
+     
+   alert(requsest.Text);
   }
 }
 
