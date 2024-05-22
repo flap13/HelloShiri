@@ -72,7 +72,8 @@ namespace Backend
             }
             else
             {
-                chatResponse.Text = message.Content;
+                // TODO: Deserialize/Parse answer manualy
+                chatResponse.Text = "Something gouing wrong";
             }
 
             return chatResponse;
