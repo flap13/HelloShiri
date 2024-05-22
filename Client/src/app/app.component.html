@@ -2,8 +2,8 @@
 <div>  
    Hello
 </div>
-<button  (click)="startListening()" >הקלט</button>
-<button  (click)="startListening()" >הפסק</button>
+<button *ngIf="showRecord" (click)="startListening()" >הקלט</button>
+<button *ngIf="!showRecord"  (click)="startListening()" >הפסק</button>
 <p>{{speachToText}}</p>
 
 <h1>{{hello}}</h1>

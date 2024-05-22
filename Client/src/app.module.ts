@@ -10,6 +10,11 @@ import { ItemListComponent } from './item-list/item-list.component';
 
 import { CommonModule } from '@angular/common';
 
+import { FormsModule } from '@angular/forms';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +32,8 @@ import { CommonModule } from '@angular/common';
     AppService,
     AddItemComponent,
     ItemListComponent,
-    CommonModule
+    CommonModule,
+    FormsModule
 
   ],
   providers: [AppService, HttpClientModule, HttpClient,CommonModule],

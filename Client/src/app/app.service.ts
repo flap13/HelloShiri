@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
+    'Content-Type':  'text',//application/json
    // Authorization: 'my-auth-token'
   })
 };
@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class AppService {
 
-    chatResponse: ChatResponse[] = [];
+    
     chatResponseUrl: string="http://localhost:5127/AskMe" ;//https://helloshiri.azurewebsites.net/askme";//";
     
 
@@ -26,9 +26,39 @@ export class AppService {
     return this.http.post<ChatResponse>(this.chatResponseUrl, chatRequest, httpOptions);
     }
 
-  _GetChat( chatRequest:ChatRequest): ChatResponse[] {
-    return this.chatResponse ;
-  }
+ /* _GetChat( chatRequest:ChatRequest): ChatResponse {
+   
+    var oneChatResponse=
+    {
+      "text": "string",
+      "phoneNumbers": [
+        {
+          "name": "string",
+          "value": "string"
+        }
+      ],
+      "emails": [
+        {
+          "name": "string",
+          "value": "string"
+        }
+      ],
+      "urLs": [
+        {
+          "name": "string",
+          "value": "string"
+        }
+      ],
+      "addresses": [
+        {
+          "name": "string",
+          "value": "string"
+        }
+      ]
+    }
+   return oneChatResponse;
+   
+  }*/
 
   hello() {
     return this.http.get<string>("http://localhost:5127/Hello");
