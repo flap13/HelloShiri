@@ -28,7 +28,7 @@ export class DialogPageComponent {
   
   ngOnInit(): void {
 
-   
+    this.chatRequest.Text = "מה מספר הטלפון בחירום?";
     this.appService.GetChat(this.chatRequest).subscribe(response => {
       this.chatResponse = response;
       
@@ -36,7 +36,7 @@ export class DialogPageComponent {
         { req: this.chatRequest, res: this.chatResponse }
       ];
       alert(this.ChatList[0].req.Text );
-      console.log(this.chatResponse);
+      console.log(this.chatResponse.Text);
     });
 
    
