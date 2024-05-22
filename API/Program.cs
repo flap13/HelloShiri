@@ -19,12 +19,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/GetResponse", ([FromBody]ChatRequest request) =>
+app.MapPost("/AskMe", ([FromBody]ChatRequest request) =>
 {
     ChatResponse response = AI.GetChatResponse(request);
     return response;
 })
-.WithName("GetResponse")
+.WithName("AskMe")
 .WithOpenApi();
 
 app.Run();
