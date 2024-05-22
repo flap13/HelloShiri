@@ -1,4 +1,4 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/5a54da1f-a549-4640-935f-02baf27a6d31/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/helloShiri",
+    "appService.defaultWebAppToDeploy": "/subscriptions/5a54da1f-a549-4640-935f-02baf27a6d31/resourceGroups/Toly_AI/providers/Microsoft.Web/sites/helloShiri1",
     "appService.deploySubpath": "."
 }
