@@ -1,7 +1,7 @@
 <div class="chatAskDiv">
 
     <div class="inputDiv">
-        <input type="text" placeholder="דברי איתי"  [(ngModel)]="tryText" (keyup)="onKey($event)">
+        <input type="text" class="inputAsk" placeholder="דברי איתי"  [(ngModel)]="tryText" (keyup)="onKey($event)">
        <!--(keyup)="onKey($event)"-->
         <div  (click)="startRecording()" *ngIf="!isUserSpeaking">
           <img class="imgSize" src="assets\img\micro_start.png" >
@@ -14,12 +14,12 @@
 
         </div>
         <div  *ngIf="isUserSpeaking" (click)="stopRecording()" class="stopRecord">
-        עצור הקלטה
+            <img class="imgSize" src="assets\img\stop_record.png" >
         </div>
     </div>
     
-    <div  (click)="sendAsk()" *ngIf="tryText.length>0">
-        שלח
+    <div  (click)="sendAsk()" *ngIf="(tryText.length>0 && !isUserSpeaking)">
+        <img class="imgSize" src="assets\img\up-arrow.png" >
     </div>
     <div>
 

@@ -28,16 +28,9 @@ export class DialogPageComponent {
   
   ngOnInit(): void {
 
-    this.chatRequest.text = "מה הטלפון?";
-    this.appService.GetChat(this.chatRequest).subscribe(response => {
-      this.chatResponse = response;
-      
-      this.ChatList = [
-        { req: this.chatRequest, res: this.chatResponse }
-      ];
-     
-      console.log(this.chatResponse);
-    });
+    this.ChatList =[];
+    
+   
 
    
     // Hardcoded initialization of the array with one ChatObject
@@ -59,8 +52,21 @@ export class DialogPageComponent {
   }
 
   public addRequest( requsest: ChatRequest){
+    //this.chatRequest.text = "מה הטלפון?";
+    
+    this.chatResponse=new ChatResponse();
+    this.ChatList.push(
+      { req: requsest, res: this.chatResponse })
+    ;
+    
+    this.appService.GetChat(requsest).subscribe(response => {
+      this.chatResponse = response;
+      
+      this.ChatList[ this.ChatList.length-1].res= this.chatResponse;
+      
      
-   alert(requsest.Text);
+      console.log(this.chatResponse);
+    });
   }
 }
 

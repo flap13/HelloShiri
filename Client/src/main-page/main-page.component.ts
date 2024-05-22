@@ -41,9 +41,9 @@ export class MainPageComponent implements AfterViewInit {
   }*/
   addItem(newItem: string) {
   
-    this.showHomePage = !this.showHomePage;
+    this.showHomePage = false;
     this.requsest = new ChatRequest();
-    this.requsest.Text = newItem;
+    this.requsest.text = newItem;
 
     //alert(newItem);
   //this.DialogPageComponent.addRequest( );
