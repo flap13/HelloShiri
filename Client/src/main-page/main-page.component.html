@@ -2,10 +2,9 @@
 <div *ngIf="showHomePage">
   <app-home-page></app-home-page>
 </div>
-<div *ngIf="!showHomePage">
-  <app-dialog-page></app-dialog-page>
+<div  [hidden]="showHomePage">
+  <app-dialog-page #DialogPage ></app-dialog-page>
 </div>
-<div (click)="getAnswer();">click</div>
 <div class="chatTxtDiv">
-      <app-chat-ask></app-chat-ask>
+      <app-chat-ask  (newItemEvent)="addItem($event)" ></app-chat-ask>
 </div>

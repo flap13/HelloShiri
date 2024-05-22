@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,  ViewChild  } from '@angular/core';
 
+ 
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
+
+
 
 }
