@@ -1,6 +1,25 @@
 .chatTxtDiv{
-    color: aquamarine; 
+ 
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+.profileButton{
+    width:50vw;
+    height:2vh;
+    border-radius: 24px;
+    background-color: #5030BC;
+    padding: 1vh 2vw 1vh 2vw;
+    margin: 0vh 25vw;
+}
+.profileDiv{
+    display: flex;
+    align-items: center;
+}
+
+.helloDiv{
+    padding: 24vh 0vw;
+}
+.profileMsg{
+    padding: 3vh 15vw;
 }

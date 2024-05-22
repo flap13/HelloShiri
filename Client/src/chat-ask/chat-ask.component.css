@@ -1,7 +1,15 @@
 .chatAskDiv{
-    border:solid;
-    border-radius: 20px;
-    background-color: white;
-    padding: 2vh 2vw 2vh 2vw;
-    width:97vw;
+    display: grid;
+    grid-template-columns:auto 1fr 1fr;
+  
+    
+    margin: 2vh 2vw 2vh 2vw;
+    width:82vw;
+    height: 5vh;
+}
+
+.inputDiv{
+    display: flex;
+    background-color: #F5E7FF;
+    border-radius: 24px;
 }

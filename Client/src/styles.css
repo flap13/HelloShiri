@@ -1,4 +1,12 @@
+@font-face {
+    font-family: 'Assistant';
+    src: url('assets/fonts/Assistant-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 /* You can add global styles to this file, and also import other style files */
 div{
-   
+    direction: rtl;
+   color: #F5E7FF;
+   font-family: 'Assistant','Courier New', Courier, monospace;
 }
